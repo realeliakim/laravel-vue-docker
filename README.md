@@ -17,16 +17,14 @@ Tela de checkout com frontend em Vue e api em Laravel. Ultilizando Docker para s
 $ git clone git@github.com:realeliakim/laravel-vue-docker.git
 
 # Vai para a pasta do projeto
-$ cd pipedrive_bling
+$ cd laravel-vue-docker
 
 # Adicionar dependências
 $ composer install
-
 $ npm install && npm run dev
 
 # Executar migrations e seeds
 $ php artisan migrate
-
 $ php artisan db:seed --class=ProductSeeder
 
 # Subir container no endereço: http://127.0.0.1:8000/
