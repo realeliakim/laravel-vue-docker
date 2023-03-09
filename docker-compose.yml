@@ -1,0 +1,44 @@
+version: "3.7"
+
+services:
+    api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: shouts.dev/laravel
+        container_name: laravel-masters-api
+        ports:
+            - 8000:80
+        volumes:
+            - ./:/var/www/html
+        networks:
+            - master-app
+        depends_on:
+            - mysql
+
+    mysql:
+        image: mysql
+        container_name: mysql-masters-db
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: web-masters
+            MYSQL_USER: mysql
+            MYSQL_PASSWORD: mysql
+            MYSQL_ROOT_PASSWORD: master
+        ports:
+            - 3308:3306
+        volumes:
+            - dbdata/:/var/lib/mysql
+            - ./mysql/my.cnf:/etc/mysql/my.cnf
+            - ./mysql/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+        networks:
+            - master-app
+
+#Volumes
+volumes:
+    dbdata:
+        driver: local
+
+networks:
+    master-app:
+        driver: bridge

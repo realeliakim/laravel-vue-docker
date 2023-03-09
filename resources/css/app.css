@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(162, 88, 236);
+}
+
+.container {
+    width: 100vw;
+    height: 75vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.product {
+    width: 100%;
+    padding: 2% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 450px;
+    background: #fff;
+    color: #000;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.list-products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
